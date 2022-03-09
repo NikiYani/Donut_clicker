@@ -1,0 +1,214 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://_Content/main_background-02.png" type="Texture" id=1]
+[ext_resource path="res://_Content/Don_1-03.png" type="Texture" id=2]
+[ext_resource path="res://_Content/Fonts/Charlie-Free.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://ClickSpriteDonut.gd" type="Script" id=4]
+[ext_resource path="res://Score.gd" type="Script" id=5]
+[ext_resource path="res://Upg1.gd" type="Script" id=6]
+[ext_resource path="res://_Content/Button-03.png" type="Texture" id=7]
+[ext_resource path="res://Upg2.gd" type="Script" id=8]
+[ext_resource path="res://Exit.gd" type="Script" id=9]
+[ext_resource path="res://Menu.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 66
+font_data = ExtResource( 3 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 418.935
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 114.5, 61.75 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 60
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 60
+font_data = ExtResource( 3 )
+
+[node name="Main" type="CanvasLayer"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="MainBackground-02" type="Sprite" parent="."]
+position = Vector2( 270, 480 )
+texture = ExtResource( 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_top = 224.0
+margin_bottom = 323.0
+color = Color( 0.121569, 0.854902, 0.929412, 0.85098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_top = 323.0
+margin_bottom = 330.0
+color = Color( 0.0862745, 0.788235, 0.858824, 0.85098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 236.0
+margin_bottom = 316.0
+rect_pivot_offset = Vector2( -222, -120 )
+custom_fonts/font = SubResource( 1 )
+text = "Your score"
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Score"]
+
+[node name="Donut" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Donut"]
+position = Vector2( 274, 582 )
+rotation = -0.523599
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 3 )
+
+[node name="Don1-03" type="Sprite" parent="Donut"]
+position = Vector2( 270, 574 )
+rotation = -0.523599
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 137.5, 103.25 )
+shape = SubResource( 7 )
+
+[node name="But1" type="Sprite" parent="Area2D"]
+position = Vector2( 138, 100 )
+scale = Vector2( 0.278, 0.278 )
+texture = ExtResource( 7 )
+script = ExtResource( 6 )
+
+[node name="UpgradePointsPerClick" type="Label" parent="Area2D"]
+anchor_right = 1.0
+margin_left = 18.0
+margin_top = 47.0
+margin_right = 260.0
+margin_bottom = 167.0
+rect_pivot_offset = Vector2( -222, -120 )
+custom_fonts/font = SubResource( 2 )
+text = "Upgrade points 
+per click (+1)
+Price: 10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2( 256, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 137.5, 103.25 )
+shape = SubResource( 7 )
+
+[node name="But2" type="Sprite" parent="Area2D2"]
+position = Vector2( 138, 100 )
+scale = Vector2( 0.278, 0.278 )
+texture = ExtResource( 7 )
+script = ExtResource( 8 )
+
+[node name="UpgradePointsPerClick" type="Label" parent="Area2D2"]
+anchor_right = 1.0
+margin_left = 18.0
+margin_top = 47.0
+margin_right = 260.0
+margin_bottom = 163.0
+rect_pivot_offset = Vector2( -222, -120 )
+custom_fonts/font = SubResource( 2 )
+text = "Upgrade 
+autoclick  (+1)
+Price: 25"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2( 0, 758 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2( 137.5, 103.25 )
+shape = SubResource( 7 )
+
+[node name="Menu" type="Sprite" parent="Area2D3"]
+position = Vector2( 138, 100 )
+scale = Vector2( 0.278, 0.278 )
+texture = ExtResource( 7 )
+script = ExtResource( 10 )
+
+[node name="UpgradePointsPerClick" type="Label" parent="Area2D3"]
+anchor_right = 1.0
+margin_left = 18.0
+margin_top = 47.0
+margin_right = 260.0
+margin_bottom = 167.0
+rect_pivot_offset = Vector2( -222, -120 )
+custom_fonts/font = SubResource( 8 )
+text = "MENU"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2( 256, 758 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2( 137.5, 103.25 )
+shape = SubResource( 7 )
+
+[node name="Exit" type="Sprite" parent="Area2D4"]
+position = Vector2( 138, 100 )
+scale = Vector2( 0.278, 0.278 )
+texture = ExtResource( 7 )
+script = ExtResource( 9 )
+
+[node name="UpgradePointsPerClick" type="Label" parent="Area2D4"]
+anchor_right = 1.0
+margin_left = 18.0
+margin_top = 47.0
+margin_right = 260.0
+margin_bottom = 163.0
+rect_pivot_offset = Vector2( -222, -120 )
+custom_fonts/font = SubResource( 9 )
+text = "EXIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="Score/Timer" to="Score" method="_on_Timer_timeout"]
+[connection signal="input_event" from="Donut" to="Donut/Don1-03" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Area2D" to="Area2D/But1" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Area2D2" to="Area2D2/But2" method="_on_Area2D2_input_event"]
+[connection signal="input_event" from="Area2D3" to="Area2D3/Menu" method="_on_Area2D3_input_event"]
+[connection signal="input_event" from="Area2D4" to="Area2D4/Exit" method="_on_Area2D4_input_event"]
